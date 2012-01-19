@@ -2,7 +2,7 @@
 # Contributor: Geoffroy Carrier <geoffroy@archlinux.org>
 
 pkgname=luarocks
-pkgver=2.0.7
+pkgver=2.0.7.1
 pkgrel=1
 pkgdesc='Deployment and management system for Lua modules'
 arch=('i686' 'x86_64')
@@ -32,4 +32,4 @@ package() {
   install -D COPYING "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
 
-md5sums=('3a9f80418025e2c43ac369ee6837b659')
+md5sums=('37003e5c78792e353acde684426bdeac')
