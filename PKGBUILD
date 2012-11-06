@@ -1,8 +1,9 @@
-# Maintainer: Chris Brannon <cmbrannon79@gmail.com>
+# Maintainer:  Bartłomiej Piotrowski <nospam@bpiotrowski.pl>
+# Contributor: Chris Brannon <cmbrannon79@gmail.com>
 # Contributor: Geoffroy Carrier <geoffroy@archlinux.org>
 
 pkgname=luarocks
-pkgver=2.0.11
+pkgver=2.0.12
 pkgrel=1
 pkgdesc='Deployment and management system for Lua modules'
 arch=('any')
@@ -16,20 +17,21 @@ optdepends=('cvs: for fetching sources from CVS repositories'
 license=('custom')
 options=('!makeflags')
 source=(http://luarocks.org/releases/$pkgname-$pkgver.tar.gz)
+md5sums=('a1bc938ddf835550917f0cb6964ea516')
 
 build() {
-  cd "$srcdir/$pkgname-$pkgver"
+  cd $srcdir/$pkgname-$pkgver
 
-  # I added --with-downloader=curl, because luarocks already uses curl
-  # for uploading.  May as well use curl for downloading.
-  ./configure --prefix=/usr --sysconfdir=/etc/luarocks --with-downloader=curl
+  # Luarocks already uses curl for uploading.
+  # May as well use curl for downloading.
+  ./configure --prefix=/usr \
+              --sysconfdir=/etc/luarocks \
+              --with-downloader=curl
   make 
 }
 
 package() {
-  cd "$srcdir/$pkgname-$pkgver"
-  make install DESTDIR="$pkgdir"
-  install -D COPYING "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  cd $srcdir/$pkgname-$pkgver
+  make install DESTDIR=$pkgdir
+  install -D COPYING $pkgdir/usr/share/licenses/$pkgname/LICENSE
 }
-
-md5sums=('f771907b8b90ae3b8c6c6b6a58970d9b')
