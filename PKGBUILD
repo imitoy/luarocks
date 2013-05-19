@@ -3,8 +3,8 @@
 # Contributor: Geoffroy Carrier <geoffroy@archlinux.org>
 
 pkgname=luarocks
-pkgver=2.0.12
-pkgrel=2
+pkgver=2.0.13
+pkgrel=1
 pkgdesc='Deployment and management system for Lua modules'
 arch=('any')
 url='http://luarocks.org/'
@@ -17,10 +17,10 @@ optdepends=('cvs: for fetching sources from CVS repositories'
 license=('custom')
 options=('!makeflags')
 source=(http://luarocks.org/releases/$pkgname-$pkgver.tar.gz)
-md5sums=('a1bc938ddf835550917f0cb6964ea516')
+md5sums=('b46809e44648875e8234c2fef79783f9')
 
 build() {
-  cd $srcdir/$pkgname-$pkgver
+  cd $pkgname-$pkgver
 
   ./configure --prefix=/usr \
               --sysconfdir=/etc/luarocks \
@@ -30,7 +30,7 @@ build() {
 }
 
 package() {
-  cd $srcdir/$pkgname-$pkgver
-  make install DESTDIR=$pkgdir
-  install -D COPYING $pkgdir/usr/share/licenses/$pkgname/LICENSE
+  cd $pkgname-$pkgver
+  make install DESTDIR="$pkgdir"
+  install -D COPYING "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
 }
