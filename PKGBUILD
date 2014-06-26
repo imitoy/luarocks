@@ -5,7 +5,7 @@
 pkgbase=luarocks
 pkgname=('luarocks' 'luarocks5.1')
 pkgver=2.1.2
-pkgrel=1
+pkgrel=2
 arch=('any')
 url='http://luarocks.org/'
 license=('custom')
@@ -55,6 +55,9 @@ package_luarocks() {
   cd $pkgname-$pkgver
   make install DESTDIR="$pkgdir"
   install -D COPYING "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+
+  # FS#40388
+  sed -i '/^LUAROCKS_UNAME_M/d' "$pkgdir"/usr/share/lua/5.2/luarocks/site_config.lua
 }
 
 package_luarocks5.1() {
@@ -66,6 +69,8 @@ package_luarocks5.1() {
   cd $pkgname-$pkgver
   make install DESTDIR="$pkgdir"
   install -D COPYING "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
-
   rm "$pkgdir"/usr/bin/luarocks{,-admin}
+
+  # FS#40388
+  sed -i '/^LUAROCKS_UNAME_M/d' "$pkgdir"/usr/share/lua/5.1/luarocks/site_config.lua
 }
