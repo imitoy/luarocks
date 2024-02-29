@@ -1,7 +1,7 @@
 pkgbase = luarocks
 	pkgdesc = Deployment and management system for Lua modules
 	pkgver = 3.10.0
-	pkgrel = 1
+	pkgrel = 2
 	url = https://luarocks.org/
 	arch = any
 	license = custom
@@ -33,6 +33,7 @@ pkgbase = luarocks
 	source = luarocks-admin.bash
 	source = luarocks-admin.fish
 	source = luarocks-admin.zsh
+	source = https://patch-diff.githubusercontent.com/raw/luarocks/luarocks/pull/1627.patch
 	validpgpkeys = 8460980B2B79786DE0C7FCC83FD8F43C2BB3C478
 	sha512sums = 4a834059b8f544274a110131d59d0647fb317078ef7709c1dc1a464513ebc38300abb71094620e21bb2f6e60193e9a1b0c06e7e0f4ad9acc2bf188bf4b599922
 	sha512sums = SKIP
@@ -46,5 +47,6 @@ pkgbase = luarocks
 	sha512sums = b43ccd818c3022b63690b6d060940bbbfd2775b1c174b9e99c8162ea0e746b276b4414c2489156e6bb9eae9ce41d83481022a5a757ea94b62074a6c8c57e9c5a
 	sha512sums = 6b52bd6f446586c3e7d5dbe1ba870e5e37c5bb9cdd5e5878959fa1c151b5a43d8b37c1dc43de46ff2c70c1f57c0429a85c382f53390179609a2880e5aa089497
 	sha512sums = f6ab6c65aaaa2680ce83a3277a2aec4400d234ddfc17c62f44190928a53b7146c38f8a779aedc1c71fed3dd2f1833e1ca924080e98ecf7462274b0d9acb07f90
+	sha512sums = dadb092d976d76f520fe729c75d883594a96837b5845bc6f38c846c7dca50ca989bd518229c11c4a3c55d030d4f11da0b46d151823644cf57eba7b81f2d4b931
 
 pkgname = luarocks
