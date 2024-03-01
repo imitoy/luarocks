@@ -1,7 +1,7 @@
 pkgbase = luarocks
 	pkgdesc = Deployment and management system for Lua modules
 	pkgver = 3.10.0
-	pkgrel = 2
+	pkgrel = 3
 	url = https://luarocks.org/
 	arch = any
 	license = custom

@@ -3,10 +3,11 @@
 # Contributor: Bartłomiej Piotrowski <bpiotrowski@archlinux.org>
 # Contributor: Chris Brannon <cmbrannon79@gmail.com>
 # Contributor: Geoffroy Carrier <geoffroy@archlinux.org>
+# Contributor: Y <y.archlinux@paritcher.com>
 
 pkgname=luarocks
 pkgver=3.10.0
-pkgrel=2
+pkgrel=3
 pkgdesc='Deployment and management system for Lua modules'
 backup=(etc/luarocks/config-5.{1,2,3,4}.lua)
 arch=('any')
