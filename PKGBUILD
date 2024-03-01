@@ -58,9 +58,9 @@ build() {
   cd "$pkgname-$pkgver"
   ./configure --prefix=/usr
   make ./build/luarocks ./build/luarocks-admin ./build/config-5.4.lua
-  make LUA_VERSION=5.1 LUA_INTERPRETER=lua5.1 LUA_INCDIR=/usr/include/lua5.1 ./build/config-5.1.lua
-  make LUA_VERSION=5.2 LUA_INTERPRETER=lua5.2 LUA_INCDIR=/usr/include/lua5.2 ./build/config-5.2.lua
-  make LUA_VERSION=5.3 LUA_INTERPRETER=lua5.3 LUA_INCDIR=/usr/include/lua5.3 ./build/config-5.3.lua
+  make LUA_VERSION=5.1 LUA=/usr/bin/lua5.1 LUA_INCDIR=/usr/include/lua5.1 ./build/config-5.1.lua
+  make LUA_VERSION=5.2 LUA=/usr/bin/lua5.2 LUA_INCDIR=/usr/include/lua5.2 ./build/config-5.2.lua
+  make LUA_VERSION=5.3 LUA=/usr/bin/lua5.3 LUA_INCDIR=/usr/include/lua5.3 ./build/config-5.3.lua
 }
 
 package() {
