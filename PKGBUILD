@@ -81,9 +81,14 @@ package() {
 
   cd "$pkgname-$pkgver"
   make DESTDIR="$pkgdir" install
-  make DESTDIR="$pkgdir" LUA_VERSION=5.1 install-config
-  make DESTDIR="$pkgdir" LUA_VERSION=5.2 install-config
-  make DESTDIR="$pkgdir" LUA_VERSION=5.3 install-config
-  make DESTDIR="$pkgdir" LUA_VERSION=5.4 install-config
+
+  for v in 5.1 5.2 5.3 5.4; do
+    make DESTDIR="$pkgdir" LUA_VERSION="$v" install-config
+    # Install lua files to make `require"luarocks.loader"` work for non-main versions
+    for f in src/luarocks/core/*.lua src/luarocks/loader.lua; do
+	   install -Dm644 "$f" "$pkgdir/usr/share/lua/$v/${f#src/}"
+	done
+  done
+
   install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/COPYING"
 }
