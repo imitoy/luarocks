@@ -61,7 +61,7 @@ build() {
 package_luarocks() {
   depends+=(lua-luarocks)
   backup=(etc/luarocks/config-5.{1,2,3,4,5}.lua)
-  depends=(coreutils # need chmod, md5sum
+  depends+=(coreutils # need chmod, md5sum
            curl # need one of curl or wget
            lua
            unzip # need unzip and zip or lua-zlib
